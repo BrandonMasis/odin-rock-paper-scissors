@@ -21,7 +21,7 @@ function playerSelection() {
 }
 
 function computerSelection() {
-  let selections = ["rock", "paper", "scissors"];
+  const selections = ["rock", "paper", "scissors"];
   return selections[Math.floor(Math.random() * 3)];
 }
 
