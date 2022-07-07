@@ -63,6 +63,10 @@ function computerDefault() {
   img2.setAttribute("src", rockPng);
   computerHand.style.cssText = "";
 }
+function playerDefault() {
+  img1.setAttribute("src", rockPng);
+  playerHand.style.cssText = "transform: scaleX(1);";
+}
 
 function playRound(player, computer) {
   computer = computer();
@@ -99,7 +103,8 @@ function playRound(player, computer) {
     winner();
   }
 
-  setTimeout(computerDefault, 700);
+  setTimeout(computerDefault, 750);
+  setTimeout(playerDefault, 750);
 }
 
 // //////////////////////////
@@ -184,7 +189,6 @@ playAgain.addEventListener("click", () => {
 
 // VISUAL
 let img1 = document.getElementById("playerHand").firstChild;
-console.log(img1);
 
 //On button hover change player hand image
 ///////////// Mouse enter /////////////
