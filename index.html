@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
-    <h1>Open the console</h1>
+    <section class="game flex-center">
+        <div class="container flex-center">
+            <h1 id="title">ROCK PAPER SCISSORS</h1>
+            <p id="subtitle">Good luck!</p>
+            <div class="results flex-center">
+                <div id="playerHand"><img src="./images/rock.png" alt=""></div>
+            
+                <div id="computerHand"><img src="./images/rock.png" alt=""></div>
+            </div>
+            <div class="options flex-center">
+                <div class="points flex-end">
+                    <h3>You</h3>
+                    <h3 id="playerPoints">0</h3>
+                </div>
+                <div id="buttons" class="displayFlex">
+                    <button id="rock" class="rockBtn"><img id="rockImg" class="rockbtn" src="./images/rock.png" alt=""></button>
+                    <button id="paper"class="paperBtn"><img id="paperImg" class="paperbtn" src="./images/paper.png" alt=""></button>
+                    <button id="scissors"class="scissorsBtn"><img id="scissorsImg" class="scissorsbtn" src="./images/scissors.png" alt=""></button>
+                </div>
+                <button id="playAgain" class="displayNone"><h2>Play again?</h2></button>
+                <div class="points">
+                    <h3 >Computer</h3>
+                    <h3 class="order"id="computerPoints">0</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
-<script src="./script.js"></script>
+
 </html>
