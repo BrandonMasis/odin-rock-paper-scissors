@@ -20,11 +20,14 @@ const img2 = document.getElementById("computerHand").firstChild;
 
 rockBtn.addEventListener("click", () => {
   playRound("rock", computerSelection);
+
   check();
 });
 
 paperBtn.addEventListener("click", () => {
   playRound("paper", computerSelection);
+  img1.setAttribute("src", paperPng);
+  playerHand.style.cssText = "transform: scaleX(-1);";
   check();
 });
 
@@ -41,16 +44,24 @@ function computerSelection() {
 function computerHandImg(choice) {
   if (choice === "rock") {
     img2.setAttribute("src", rockPng);
-    computerHand.style.cssText = "";
+    computerHand.style.cssText =
+      "animation-name:shake;animation-duration: 0.5s;transition: cubic-bezier(0.075, 0.82, 0.165, 1)";
   } else if (choice === "paper") {
     img2.setAttribute("src", paperPng);
-    computerHand.style.cssText = "transform: scaleX(-1);";
+    computerHand.style.cssText =
+      "transform:scaleX(-1);animation-name:shakeScale;animation-duration: 0.5s;transition: cubic-bezier(0.075, 0.82, 0.165, 1)";
   } else if (choice === "scissors") {
     img2.setAttribute("src", scissorsPng);
-    computerHand.style.cssText = "transform: scaleX(-1);";
+    computerHand.style.cssText =
+      "transform: scaleX(-1);animation-name:shakeScale;animation-duration: 0.5s;transition: cubic-bezier(0.075, 0.82, 0.165, 1) ;";
   } else {
     console.log("Something went wrong with computerHandImg()");
   }
+}
+
+function computerDefault() {
+  img2.setAttribute("src", rockPng);
+  computerHand.style.cssText = "";
 }
 
 function playRound(player, computer) {
@@ -59,6 +70,7 @@ function playRound(player, computer) {
   // tie
   if (player === computer) {
     computerHandImg(computer);
+
     tie();
   }
   // rock
@@ -86,6 +98,8 @@ function playRound(player, computer) {
     computerHandImg(computer);
     winner();
   }
+
+  setTimeout(computerDefault, 700);
 }
 
 // //////////////////////////
@@ -173,11 +187,8 @@ let img1 = document.getElementById("playerHand").firstChild;
 console.log(img1);
 
 //On button hover change player hand image
+///////////// Mouse enter /////////////
 rockBtn.addEventListener("mouseenter", () => {
-  img1.setAttribute("src", rockPng);
-  playerHand.style.cssText = "";
-});
-rockBtn.addEventListener("mouseleave", () => {
   img1.setAttribute("src", rockPng);
   playerHand.style.cssText = "";
 });
@@ -187,19 +198,27 @@ paperBtn.addEventListener("mouseenter", () => {
   playerHand.style.cssText = "transform: scaleX(-1);";
 });
 
+scissorsBtn.addEventListener("mouseenter", () => {
+  img1.setAttribute("src", scissorsPng);
+  playerHand.style.cssText = "transform: scaleX(-1);";
+});
+// Mouse leave ////////////////////////
+
+rockBtn.addEventListener("mouseleave", () => {
+  img1.setAttribute("src", rockPng);
+  playerHand.style.cssText = "";
+});
+
 paperBtn.addEventListener("mouseleave", () => {
   img1.setAttribute("src", rockPng);
   playerHand.style.cssText = "";
 });
 
-scissorsBtn.addEventListener("mouseenter", () => {
-  img1.setAttribute("src", scissorsPng);
-  playerHand.style.cssText = "transform: scaleX(-1);";
-});
 scissorsBtn.addEventListener("mouseleave", () => {
   img1.setAttribute("src", rockPng);
   playerHand.style.cssText = "";
 });
+
 //
 
 // on computer selection change computer hand image

@@ -72,11 +72,15 @@ body{
     
 }
 
+#computerHand{
+   
+}
 #playerHand img{
     transform: scaleX(-1);
 }
 #computerHand img{
     transform: scaleX();
+    
 }
 
 .options{
@@ -171,3 +175,20 @@ body{
     display: none;
 }
 
+@keyframes shake{
+    0%{
+        transform: translateX(-30px);
+    }
+    100%{
+        transform: translateX(15px);
+    }
+}
+
+@keyframes shakeScale{
+    0%{
+        transform: scaleX(-1) translateX(-30px) ;
+    }
+    100%{
+        transform: scaleX(-1) translateX(15px);
+    }
+}
